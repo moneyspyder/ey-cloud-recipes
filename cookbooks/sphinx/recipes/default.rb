@@ -3,13 +3,12 @@
 # Recipe:: default
 #
 
-ey_cloud_report "Sphinx" do
-  message "Reding Sphinx script"
+execute "--RUNNING SPHINX SCRIPT--" do
 end
 
 # Set your application name here
-#appname = "DavidHampton"
-appname = "davidhampton_cloud Application"
+appname = "DavidHampton"
+#appname = "davidhampton_cloud Application"
 
 # Uncomment the flavor of sphinx you want to use
 flavor = "thinking_sphinx"
