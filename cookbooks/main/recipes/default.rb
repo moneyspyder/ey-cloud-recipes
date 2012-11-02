@@ -41,7 +41,7 @@ require_recipe "sphinx"
 #require_recipe "mongodb"
 
 #uncomment to run the resque recipe
-# require_recipe "resque"
+require_recipe "resque"
 
 #uncomment to run redis.yml recipe
 # require_recipe "redis-yml"
@@ -132,3 +132,9 @@ require_recipe "sphinx"
   # postgresql9_pg_stat_statements "todo" - Not done
   
 # end
+
+execute "complete" do
+ command %Q{
+   echo "i ran at #{Time.now}" >> /root/cheftime
+ }
+end
