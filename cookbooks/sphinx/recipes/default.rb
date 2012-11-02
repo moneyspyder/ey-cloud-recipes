@@ -3,7 +3,8 @@
 # Recipe:: default
 #
 
-execute "--RUNNING SPHINX SCRIPT--" do
+ey_cloud_report "Sphinx" do
+  message "running sphinx command"
 end
 
 # Set your application name here
