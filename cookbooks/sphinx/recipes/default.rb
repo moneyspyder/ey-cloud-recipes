@@ -3,8 +3,13 @@
 # Recipe:: default
 #
 
+ey_cloud_report "Sphinx" do
+  message "Reding Sphinx script"
+end
+
 # Set your application name here
-appname = "DavidHampton"
+#appname = "DavidHampton"
+appname = "davidhampton_cloud Application"
 
 # Uncomment the flavor of sphinx you want to use
 flavor = "thinking_sphinx"
@@ -27,7 +32,7 @@ utility_name = nil
 # If you don't want scheduled reindexes, just leave this set to nil.
 # Setting it equal to 10 would run the cron job every 10 minutes.
 
-cron_interval = 59 #If this is not set your data will NOT be indexed
+cron_interval = 58 #If this is not set your data will NOT be indexed
 
 if utility_name
   sphinx_host = node[:utility_instances].find {|u| u[:name] == utility_name }[:hostname]
