@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-ey_cloud_report "Sphinx" do
+ey_cloud_report "Sphinx WARREN" do
   message "running sphinx command"
 end
 
