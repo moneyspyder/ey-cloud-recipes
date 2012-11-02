@@ -1,8 +1,8 @@
-#execute "testing" do
-#  command %Q{
-#    echo "i ran at #{Time.now}" >> /root/cheftime
-#  }
-#end
+execute "testing" do
+ command %Q{
+   echo "i ran at #{Time.now}" >> /root/cheftime
+ }
+end
 
 # uncomment to turn on thinking sphinx/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
 require_recipe "sphinx"
