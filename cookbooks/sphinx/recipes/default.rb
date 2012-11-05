@@ -7,12 +7,13 @@ ey_cloud_report "Sphinx WARREN" do
   message "running sphinx command"
 end
 
-ey_cloud_report "Instance role #{node[:instance_role]}" do
-  message "saving instance role"
-end
+# ey_cloud_report "Instance role #{node[:instance_role]}" do
+#   message "saving instance role"
+# end
 
 # Set your application name here
-appname = "DavidHampton"
+#appname = "DavidHampton"
+appname = "davidhampton_cloud"
 #appname = "davidhampton_cloud Application"
 
 # Uncomment the flavor of sphinx you want to use
