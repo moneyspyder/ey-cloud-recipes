@@ -29,15 +29,15 @@ require_recipe "sphinx"
 # require_recipe "sunspot"
 
 #uncomment to run the exim recipe
-#exim_auth "auth" do
-#  my_hostname "my_hostname.com"
-#  smtp_host "smtp.sendgrid.net"
-#  username "username"
-#  password "password"
-#end
+exim_auth "auth" do
+ my_hostname "dh.moneyspyder.co.uk"
+ smtp_host "smtp.sendgrid.net"
+ username "theinbetweens"
+ password "se8aCHA9ec3a4"
+end
 
 #uncomment to run the exim::auth recipe
-#require_recipe "exim::auth"
+require_recipe "exim::auth"
 #require_recipe "mongodb"
 
 #uncomment to run the resque recipe
