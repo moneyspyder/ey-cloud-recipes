@@ -14,7 +14,7 @@ Chef::Log.info "Checking logging works"
 # end
 
 # Set your application name here
-appname = "davidhampton_cloud"
+appname = "davidhampton"
 #appname = "dh_mysql5_production"
 
 # Uncomment the flavor of sphinx you want to use
