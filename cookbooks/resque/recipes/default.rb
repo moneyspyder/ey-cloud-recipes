@@ -35,7 +35,11 @@ if ['solo', 'util'].include?(node[:instance_role])
         owner node[:owner_name]
         group node[:owner_name]
         mode 0644
-        source "resque_wildcard.conf.erb"
+        if count == 0
+          source "resque_high_to_medium.conf.erb"
+        else
+          source "resque_wildcard.conf.erb"
+        end
       end
     end
 
