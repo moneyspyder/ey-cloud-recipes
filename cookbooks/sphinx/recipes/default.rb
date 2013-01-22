@@ -14,7 +14,7 @@ Chef::Log.info "Checking logging works"
 # end
 
 # Set your application name here
-appname = "davidhampton"
+appname = node[:applications].keys.first
 #appname = "dh_mysql5_production"
 
 # Uncomment the flavor of sphinx you want to use
