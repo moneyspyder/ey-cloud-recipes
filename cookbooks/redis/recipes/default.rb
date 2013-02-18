@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 
-if ['util'].include?(node[:instance_role])
-  if node[:name] == 'redis'
+if ['util', 'app', 'app_master'].include?(node[:instance_role])
+  #if node[:name] == 'redis'
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
@@ -64,5 +64,5 @@ if ['util'].include?(node[:instance_role])
     execute "monit reload" do
       action :run
     end
-  end
+  #end
 end
