@@ -132,6 +132,9 @@ require_recipe "redis"
   # postgresql9_pg_stat_statements "todo" - Not done
   
 # end
+#if node[:applications].keys.first == 'FlowercardPrinting'
+  require_recipe "shared_db"
+#end
 
 execute "complete" do
  command %Q{

@@ -9,29 +9,31 @@ if ['solo', 'util', 'app', 'app_master'].include?(node[:instance_role])
   end
 
   node[:applications].each do |app, data|
-    template "/etc/monit.d/resque_scheduler_#{app}.monitrc" do
-      owner 'root'
-      group 'root'
-      mode 0644
-      source "resque-scheduler.monitrc.erb"
-      variables({
-      :app_name => app,
-      :rails_env => node[:environment][:framework_env]
-      })
+    if app != 'FlowercardPrinting'
+      template "/etc/monit.d/resque_scheduler_#{app}.monitrc" do
+        owner 'root'
+        group 'root'
+        mode 0644
+        source "resque-scheduler.monitrc.erb"
+        variables({
+        :app_name => app,
+        :rails_env => node[:environment][:framework_env]
+        })
+      end
+
+      remote_file "/data/#{app}/shared/bin/resque-scheduler" do
+        source "resque-scheduler"
+        owner 'root'
+        group 'root'
+        mode 0755
+        backup 0
+      end
     end
 
-    remote_file "/data/#{app}/shared/bin/resque-scheduler" do
-      source "resque-scheduler"
-      owner 'root'
-      group 'root'
-      mode 0755
-      backup 0
+    execute "ensure-resque-is-setup-with-monit" do
+      command %Q{
+      monit reload
+      }
     end
-  end
-
-  execute "ensure-resque-is-setup-with-monit" do
-    command %Q{
-    monit reload
-    }
   end
 end

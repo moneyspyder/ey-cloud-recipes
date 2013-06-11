@@ -6,12 +6,19 @@
 # by Adam Holt (@omgitsads)
 #
 
-# Name of the application
-app = "myapp"
+
+if node[:applications].keys.first == 'FlowercardPrinting'
+	# Name of the application
+	app = "FlowercardPrinting"
+
+	# The name of the application with db credentials you want to use
+	parent_app = "Flowercard"
+end
+
 app_path = "/data/#{app}/shared/config/database.yml"
 
 # The name of the application with db credentials you want to use
-parent_app = "parentapp"
+# parent_app = "parentapp"
 parent_app_path = "/data/#{parent_app}/shared/config/database.yml"
 
 if app && parent_app
