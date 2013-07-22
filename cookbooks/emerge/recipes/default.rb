@@ -23,3 +23,8 @@
 #   version "2.7.6"
 #   action :install
 # end
+
+package "app-crypt/gpgme" do
+  version "1.1.6"
+  action :install
+end
