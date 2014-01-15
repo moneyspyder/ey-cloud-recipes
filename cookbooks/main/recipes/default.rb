@@ -63,8 +63,17 @@ require_recipe "resque"
 #include_recipe "exim::auth"
 #include_recipe "mongodb"
 
+#uncomment to run the resque recipe
+# require_recipe "resque"
+
 #uncomment to run redis.yml recipe
 # include_recipe "redis-yml"
+
+#uncomment to run the resque-scheduler recipe
+# require_recipe "resque-scheduler"
+
+#uncomment to run the redis recipe
+#require_recipe "redis"
 
 #uncomment to run the api-keys-yml recipe
 # include_recipe "api-keys-yml"
