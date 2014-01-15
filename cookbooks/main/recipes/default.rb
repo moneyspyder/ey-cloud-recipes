@@ -5,7 +5,20 @@ execute "testing" do
 end
 
 # uncomment to turn on thinking sphinx/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
-# require_recipe "sphinx"
+require_recipe "sphinx"
+
+#uncomment to run the resque-scheduler recipe
+require_recipe "resque-scheduler"
+
+#uncomment to run the redis recipe
+require_recipe "redis"
+
+#uncomment to run the resque recipe
+require_recipe "resque"
+
+# Copied from previous version, was used to upgrade open ssh - not sure if needed in v4
+# require_recipe "emerge"
+# require_recipe "openssh_6.2"
 
 # uncomment to use the collectd recipe. See cookbooks/collectd/readme.md for documentation.
 # include_recipe "collectd"
@@ -50,17 +63,8 @@ end
 #include_recipe "exim::auth"
 #include_recipe "mongodb"
 
-#uncomment to run the resque recipe
-# require_recipe "resque"
-
 #uncomment to run redis.yml recipe
 # include_recipe "redis-yml"
-
-#uncomment to run the resque-scheduler recipe
-# require_recipe "resque-scheduler"
-
-#uncomment to run the redis recipe
-#require_recipe "redis"
 
 #uncomment to run the api-keys-yml recipe
 # include_recipe "api-keys-yml"

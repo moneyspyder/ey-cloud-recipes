@@ -10,6 +10,8 @@ if ['solo', 'util', 'app', 'app_master'].include?(node[:instance_role])
 
   node[:applications].each do |app, data|
     if app != 'FlowercardPrinting'
+      Chef::Log.info("[resque-scheduler] Setting up for #{app}")
+      
       template "/etc/monit.d/resque_scheduler_#{app}.monitrc" do
         owner 'root'
         group 'root'
@@ -28,12 +30,13 @@ if ['solo', 'util', 'app', 'app_master'].include?(node[:instance_role])
         mode 0755
         backup 0
       end
-    end
-
-    execute "ensure-resque-is-setup-with-monit" do
-      command %Q{
-      monit reload
-      }
+      execute "ensure-resque-is-setup-with-monit" do
+        command %Q{
+          monit reload
+        }
+      end
+    else
+      Chef::Log.info('[resque-scheduler] Not setting up on FlowercardPrinting')
     end
   end
 end

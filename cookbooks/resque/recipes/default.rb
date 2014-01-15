@@ -16,6 +16,7 @@ if ['solo', 'util', 'app', 'app_master'].include?(node[:instance_role])
   else worker_count = 4
   end
 
+  Chef::Log.info("[resque] Setting up resque for a #{node[:ec2][:instance_type]} instance with #{worker_count} workers")
 
   node[:applications].each do |app, data|
     if app != 'FlowercardPrinting'
