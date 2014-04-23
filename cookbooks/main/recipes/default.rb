@@ -18,7 +18,7 @@ require_recipe "resque"
 
 # Copied from previous version, was used to upgrade open ssh - not sure if needed in v4
 # require_recipe "emerge"
-# require_recipe "openssh_6.2"
+require_recipe "openssh_6.2" # Actually 6.4...
 
 # uncomment to use the collectd recipe. See cookbooks/collectd/readme.md for documentation.
 # include_recipe "collectd"

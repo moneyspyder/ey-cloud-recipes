@@ -1,14 +1,14 @@
 #
-# Cookbook Name:: openssh-6.2p2
+# Cookbook Name:: openssh-6.4p1
 # Recipe:: default
 #
 
-ssh_desiredversion = "openssh-6.2p2"
+ssh_desiredversion = "openssh-6.4p1"
 
-if ssh_desiredversion == "openssh-6.2p2"
-  ssh_file = "openssh-6.2p2.tar.gz"
-  ssh_dir = "openssh-6.2p2"
-  ssh_url = "http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-6.2p2.tar.gz"
+if ssh_desiredversion == "openssh-6.4p1"
+  ssh_file = "openssh-6.4p1.tar.gz"
+  ssh_dir = "openssh-6.4p1"
+  ssh_url = "http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-6.4p1.tar.gz"
 end
 
 remote_file "/data/#{ssh_file}" do
