@@ -25,7 +25,11 @@ execute "unarchive ssh" do
   not_if { FileTest.directory?("/data/#{ssh_dir}") }
 end
   
+# execute "install ssh " do
+#   command "cd /data/#{ssh_dir} && ./configure --prefix=/usr && make && make install"
+# end
+
 execute "install ssh " do
   command "cd /data/#{ssh_dir} && ./configure --prefix=/usr && make && make install"
+  not_if { FileTest.directory?("/data/#{ssh_dir}") }
 end
-  
