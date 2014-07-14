@@ -12,11 +12,11 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
     end
 
     enable_package "dev-db/redis" do
-      version "2.4.6"
+      version "2.4.4"
     end
 
     package "dev-db/redis" do
-      version "2.4.6"
+      version "2.4.4"
       action :upgrade
     end
 
@@ -28,7 +28,8 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
       action :create
     end
 
-    template "/etc/redis_util.conf" do
+    # template "/etc/redis_util.conf" do
+    template "/etc/redis.conf" do
       owner 'root'
       group 'root'
       mode 0644
@@ -55,7 +56,8 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
       source "redis.monitrc.erb"
       variables({
         :profile => '1',
-        :configfile => '/etc/redis_util.conf',
+        #:configfile => '/etc/redis_util.conf',
+        :configfile => '/etc/redis.conf',
         :pidfile => node[:redis][:pidfile],
         :logfile => node[:redis][:basename],
         :port => node[:redis][:bindport],
