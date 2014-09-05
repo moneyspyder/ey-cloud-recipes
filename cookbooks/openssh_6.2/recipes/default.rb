@@ -4,6 +4,7 @@
 #
 
 ssh_desiredversion = "openssh-6.6p1"
+installed = "#{ssh_desiredversion}-installed"
 
 if ssh_desiredversion == "openssh-6.6p1"
   Chef::Log.info('[OpenSSH] Desired version is 6.6 - downloading')
@@ -27,14 +28,10 @@ execute "unarchive ssh" do
   Chef::Log.info("[OpenSSH] #{FileTest.directory?("/data/#{ssh_dir}")}")
   not_if { FileTest.directory?("/data/#{ssh_dir}") }
 end
-  
-# execute "install ssh " do
-#   command "cd /data/#{ssh_dir} && ./configure --prefix=/usr && make && make install"
-# end
 
 execute "install ssh " do
   Chef::Log.info('[OpenSSH] Installing')
-  command "cd /data/#{ssh_dir} && ./configure --prefix=/usr && make && make install"
-  Chef::Log.info("[OpenSSH] #{FileTest.directory?("/data/#{ssh_dir}")}")
-  not_if { FileTest.directory?("/data/#{ssh_dir}") }
+  command "cd /data/#{ssh_dir} && sudo ./configure --prefix=/usr --without-openssl-header-check && sudo make && sudo make install && touch /data/#{installed}"
+  Chef::Log.info("[OpenSSH] #{FileTest.file?("/data/#{installed}")}")
+  not_if { FileTest.file?("/data/#{installed}") }
 end
