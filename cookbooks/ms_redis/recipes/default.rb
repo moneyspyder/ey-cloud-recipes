@@ -12,11 +12,11 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
     end
 
     enable_package "dev-db/redis" do
-      version "2.4.4"
+      version "2.4.6"
     end
 
     package "dev-db/redis" do
-      version "2.4.4"
+      version "2.4.6"
       action :upgrade
     end
 
@@ -28,8 +28,7 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
       action :create
     end
 
-    # template "/etc/redis_util.conf" do
-    template "/etc/redis.conf" do
+    template "/etc/redis_util.conf" do
       owner 'root'
       group 'root'
       mode 0644
@@ -54,14 +53,7 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
       bin_path = "/usr/bin/redis-server"
     else
       bin_path = "/usr/sbin/redis-server"
-    end  
-
-     # redis-server is in /usr/bin on stable-v2, /usr/sbin for stable-v4
-    if Chef::VERSION[/^0.6/]
-      bin_path = "/usr/bin/redis-server"
-    else
-      bin_path = "/usr/sbin/redis-server"
-    end    
+    end 
 
     template "/data/monit.d/redis_util.monitrc" do
       owner 'root'
@@ -70,8 +62,7 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
       source "redis.monitrc.erb"
       variables({
         :profile => '1',
-        #:configfile => '/etc/redis_util.conf',
-        :configfile => '/etc/redis.conf',
+        :configfile => '/etc/redis_util.conf',
         :pidfile => node[:redis][:pidfile],
         :logfile => node[:redis][:basename],
         :port => node[:redis][:bindport],

@@ -13,7 +13,7 @@ include_recipe "ms_sphinx"
 include_recipe "ms_resque-scheduler"
 
 #uncomment to run the redis recipe
-include_recipe "redis"
+include_recipe "ms_redis"
 
 #uncomment to run the resque recipe
 include_recipe "resque"
