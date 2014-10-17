@@ -3,8 +3,12 @@
 # Recipe:: default
 #
 
+ey_cloud_report "Running custom scripts for #{node[:applications].keys.first}" do
+  message "[sphinx] Custom scripts: #{node[:applications].keys.first}"
+end
+
 # Set your application name here
-appname = "myapp"
+appname = node[:applications].keys.first
 
 # Uncomment the flavor of sphinx you want to use
 flavor = "thinking_sphinx"
@@ -171,6 +175,7 @@ else
     end
   else
     if ['solo', 'app', 'app_master'].include?(node[:instance_role])
+      Chef::Log.info('[sphinx] The instance role is OK to setup')
       run_for_app(appname) do |app_name, data|
         ey_cloud_report "Sphinx" do
           message "configuring #{flavor}"
