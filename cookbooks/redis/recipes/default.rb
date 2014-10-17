@@ -48,6 +48,13 @@ if ['util', 'app', 'app_master'].include?(node[:instance_role])
         :rdbcompression => node[:redis][:rdbcompression],
       })
     end
+    
+    # redis-server is in /usr/bin on stable-v2, /usr/sbin for stable-v4
+    if Chef::VERSION[/^0.6/]
+      bin_path = "/usr/bin/redis-server"
+    else
+      bin_path = "/usr/sbin/redis-server"
+    end  
 
      # redis-server is in /usr/bin on stable-v2, /usr/sbin for stable-v4
     if Chef::VERSION[/^0.6/]
