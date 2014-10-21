@@ -11,3 +11,7 @@ default[:packages] = [#{:name => "app-misc/wkhtmltopdf-bin", :version => "0.10.0
                        {:name => "net-misc/openssh", :version => "5.9_p1-r4"}
                      ]
 #5.9_p1-r5
+
+# eix-sync
+
+# emerge -g --color n --nospinner --quiet =net-misc/openssh-5.9_p1-r4
