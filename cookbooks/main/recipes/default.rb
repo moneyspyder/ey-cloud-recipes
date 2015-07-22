@@ -17,7 +17,7 @@ include_recipe "resque"
 
 # Copied from previous version, was used to upgrade open ssh - not sure if needed in v4
 # require_recipe "emerge"
-include_recipe "openssl"
+#include_recipe "openssl"
 
 # uncomment to turn on thinking sphinx 2/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
 include_recipe "ms_sphinx"
@@ -61,8 +61,8 @@ include_recipe "ms_sphinx"
 
 #uncomment to install specified packages
 # You must add your packages to packages/attributes/packages.rb
-#require_recipe "packages"
-#include_recipe "packages"
+require_recipe "packages"
+include_recipe "packages"
 
 #uncomment to add specified cron jobs for application user (deploy)
 # You must add your cron jobs to cron/attributes/cron.rb

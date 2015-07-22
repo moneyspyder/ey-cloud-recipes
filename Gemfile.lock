@@ -34,3 +34,6 @@ PLATFORMS
 DEPENDENCIES
   engineyard
   ey_config
+
+BUNDLED WITH
+   1.10.4
