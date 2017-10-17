@@ -4,7 +4,7 @@ execute "testing" do
  }
 end
 
-# include_recipe "thinking-sphinx-3"
+include_recipe "thinking-sphinx-3"
 
 #uncomment to run the resque-scheduler recipe
 include_recipe "ms_resque-scheduler"
@@ -20,7 +20,7 @@ include_recipe "resque"
 #include_recipe "openssl"
 
 # uncomment to turn on thinking sphinx 2/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
-include_recipe "ms_sphinx"
+# include_recipe "ms_sphinx"
 
 #require_recipe "openssh_6.2" # Actually 6.4...
 
