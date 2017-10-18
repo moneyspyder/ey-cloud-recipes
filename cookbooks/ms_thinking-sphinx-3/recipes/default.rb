@@ -4,7 +4,9 @@
 #
 
 #ey_cloud_report "sphinx" do
-message "Starting MS Thinking sphinx install"
+Chef::Log.info "-----------------------------------"
+Chef::Log.info "Starting MS Thinking sphinx install"
+Chef::Log.info "-----------------------------------"
 #end
 
 if solo? || !db_server?
