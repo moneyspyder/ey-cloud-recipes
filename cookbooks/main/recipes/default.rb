@@ -13,7 +13,7 @@ include_recipe "ms_resque-scheduler"
 #uncomment to run the resque recipe
 include_recipe "resque"
 
-#include_recipe "thinking-sphinx-3"
+include_recipe "thinking-sphinx-3"
 
 # Copied from previous version, was used to upgrade open ssh - not sure if needed in v4
 # require_recipe "emerge"
